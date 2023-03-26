@@ -1,1 +1,9 @@
+@import './abstracts/variables';
+@import './abstracts/mixin';
+
 @import './base/normalize';
+@import './base/typography';
+@import './base/root';
+
+@import './layout/body';
+@import './layout/header';
