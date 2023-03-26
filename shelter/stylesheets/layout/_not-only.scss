@@ -1,0 +1,17 @@
+.not-only-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  row-gap: 42px;
+  width: 460px;
+}
+
+.not-only-content__title {
+  width: 310px;
+}
+
+.not-only-content__text {
+  @include basic-text;
+  color: $color-dark-s;
+}

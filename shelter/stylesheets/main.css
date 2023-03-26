@@ -373,7 +373,17 @@ time, mark, audio, video {
   font-weight: 400;
   font-size: 3.2rem;
   line-height: 110%;
+  letter-spacing: 0.06em;
   color: #f1cdb3;
+}
+
+.h2-title {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 130%;
+  color: #ffffff;
 }
 
 body {
@@ -388,6 +398,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  background: url("../assets/images/noise-transparent.png"), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 }
 
 .container {
@@ -443,6 +454,9 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   list-style: none;
 }
 
@@ -460,5 +474,36 @@ body {
 .nav-list__item_active .nav-list__link {
   color: #fafafa;
   border-bottom: 3px solid #f1cdb3;
+}
+
+.not-only-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  row-gap: 42px;
+  width: 460px;
+}
+
+.not-only-content__title {
+  width: 310px;
+}
+
+.not-only-content__text {
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 160%;
+  color: #cdcdcd;
 }
 /*# sourceMappingURL=main.css.map */
