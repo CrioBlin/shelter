@@ -1,0 +1,28 @@
+.about__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 120px;
+}
+
+.about__img {
+  max-width: 300px;
+  max-height: 408px;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 430px;
+  height: 380px;
+}
+
+.about__title {
+  width: 370px;
+}
+
+.about__text {
+  @include basic-text;
+  color: $color-dark-xl;
+}
