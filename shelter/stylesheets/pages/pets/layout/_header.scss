@@ -1,0 +1,40 @@
+.header {
+  margin: 0;
+  background-color: $color-light-xl;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 30 auto;
+}
+
+.logo__h1 {
+  color: $color-dark-l;
+}
+
+.logo__subtitle {
+  color: $color-dark-3xl;
+}
+
+.nav__item {
+  .nav__link {
+    color: $color-dark-l;
+  }
+  &:hover {
+    .nav__link {
+      color: $color-dark-3xl;
+    }
+  }
+  &_active {
+    .nav__link {
+      color: $color-dark-l;
+    }
+    &:hover {
+      .nav__link {
+        color: $color-dark-l;
+        pointer-events: none;
+      }
+    }
+  }
+}

@@ -48,12 +48,17 @@
       color: $color-light-s;
     }
   }
-}
-
-.nav__item_active {
-  border-bottom: 3px solid $color-primary;
-  .nav__link {
-    color: $color-light-s;
+  &_active {
+    border-bottom: 3px solid $color-primary;
+    .nav__link {
+      color: $color-light-s;
+    }
+    &:hover {
+      .nav__link {
+        color: $color-light-s;
+        pointer-events: none;
+      }
+    }
   }
 }
 
