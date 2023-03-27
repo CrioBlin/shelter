@@ -406,6 +406,16 @@ time, mark, audio, video {
   color: #545454;
 }
 
+.h5-title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 110%;
+  font-family: 'Georgia';
+  letter-spacing: 0.06em;
+  color: #545454;
+}
+
 .btn {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -813,5 +823,82 @@ body {
       -ms-flex-align: center;
           align-items: center;
   row-gap: 30px;
+}
+
+.donation__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
+}
+
+.donation-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 380px;
+  row-gap: 20px;
+}
+
+.credit-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 319px;
+  padding: 10px 15px;
+  text-decoration: none;
+  background-color: #f1cdb3;
+  border-radius: 9px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.credit-card:hover {
+  cursor: pointer;
+  background-color: #fddcc4;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.credit-card__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  font-family: 'Georgia';
+  letter-spacing: 0.06em;
+  color: #545454;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.donation-info__text {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  font-family: 'Arial';
+  color: #B2B2B2;
 }
 /*# sourceMappingURL=main.css.map */

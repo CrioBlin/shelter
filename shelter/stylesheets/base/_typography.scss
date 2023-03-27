@@ -28,3 +28,10 @@
   letter-spacing: 0.06em;
   color: $color-dark-l;
 }
+
+.h5-title {
+  @include font(1.5rem, 110%, 400, normal);
+  font-family: 'Georgia';
+  letter-spacing: 0.06em;
+  color: $color-dark-l;
+}
