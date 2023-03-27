@@ -38,6 +38,12 @@
   text-decoration: none;
   color: $color-dark-s;
   box-sizing: border-box;
+  transition: 0.1s;
+  &:hover {
+    color: $color-light-s;
+    border-bottom: 3px solid $color-primary;
+    transition: 0.1s;
+  }
 }
 
 .nav__link_active {

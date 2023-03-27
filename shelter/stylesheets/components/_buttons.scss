@@ -6,6 +6,11 @@
   @include btn-text;
   border: 0;
   border-radius: 100px;
+  transition: 0.5s;
+  &:hover {
+    background-color: $color-primary-light;
+    transition: 0.5s;
+  }
 }
 
 .arrow-btn {
@@ -15,5 +20,10 @@
   background-color: inherit;
   border: 2px solid $color-primary;
   border-radius: 100px;
-  // box-sizing: content-box;
+  transition: 0.3s;
+  &:hover {
+    cursor: pointer;
+    background-color: $color-primary-light;
+    transition: 0.3s;
+  }
 }
