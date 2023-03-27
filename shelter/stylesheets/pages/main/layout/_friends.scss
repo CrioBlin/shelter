@@ -1,0 +1,35 @@
+.friends__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 60px;
+}
+
+.friends__title {
+  text-align: center;
+}
+
+.friends__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.friends__pets {
+  display: flex;
+  justify-content: space-between;
+  max-width: 990px;
+  width: 100%;
+}
+
+.left-arrow__btn {
+  transform: rotate(180deg);
+}
+
+.friends__btn {
+  width: 261px;
+  height: 52px;
+  background-color: $color-primary;
+}
