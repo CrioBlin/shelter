@@ -23,5 +23,8 @@
 }
 
 .h4-title {
-
+  @include font(2.0rem, 115%, 400, normal);
+  font-family: 'Georgia';
+  letter-spacing: 0.06em;
+  color: $color-dark-l;
 }

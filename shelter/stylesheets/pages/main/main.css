@@ -396,6 +396,16 @@ time, mark, audio, video {
   color: #545454;
 }
 
+.h4-title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 115%;
+  font-family: 'Georgia';
+  letter-spacing: 0.06em;
+  color: #545454;
+}
+
 .btn {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -757,5 +767,51 @@ body {
   width: 261px;
   height: 52px;
   background-color: #f1cdb3;
+}
+
+.help__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 60px;
+}
+
+.help__title {
+  text-align: center;
+}
+
+.help-card__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  row-gap: 55px;
+  -webkit-column-gap: 120px;
+          column-gap: 120px;
+}
+
+.help-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 30px;
 }
 /*# sourceMappingURL=main.css.map */
