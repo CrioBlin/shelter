@@ -1,13 +1,14 @@
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
   background: url("../assets/images/noise-transparent.png"), 
               radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 }
 
 .container {
-  margin: 80px 40px 0;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  margin: 80px auto 0;
+  // margin: 0 auto;
+  // padding: 0 40px;
   width: 1200px;
 }

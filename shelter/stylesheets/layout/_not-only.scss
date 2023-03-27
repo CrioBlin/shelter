@@ -5,7 +5,7 @@
   margin-top: 90px;
 }
 
-.not-only-content {
+.not-only__content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -14,16 +14,16 @@
   width: 460px;
 }
 
-.not-only-content__title {
+.not-only__title {
   width: 310px;
 }
 
-.not-only-content__text {
+.not-only__text {
   @include basic-text;
   color: $color-dark-s;
 }
 
-.not-only-content__btn {
+.not-only__btn {
   width: 207px;
   height: 52px;
   background-color: $color-primary;

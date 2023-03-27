@@ -1,0 +1,13 @@
+.section-light {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-light-xl;
+}
+
+.section-grey {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-light-l;
+}
