@@ -1,0 +1,56 @@
+.friends__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.friends__title {
+  text-align: center;
+}
+
+.friends__pets {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px 40px;
+  margin: 59px 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  width: 340px;
+  height: 52px;
+}
+
+.pagination__btn {
+  width: 52px;
+  height: 52px;
+  @include font(2.0rem, 115%, 400, normal);
+  font-family: 'Georgia';
+  text-align: center;
+  letter-spacing: 0.06em;
+  background-color: inherit;
+  border: 2px solid $color-primary;
+  box-sizing: border-box;
+  border-radius: 100px;
+  transition: 0.5s;
+  &:hover {
+    border-color: $color-primary-light;
+    background-color: $color-primary-light;
+    cursor: pointer;
+  }
+
+  &_disabled {
+    border-color: $color-dark-s;
+    pointer-events: none;
+  }
+}
+
+.pagination__current-btn {
+  .pagination__btn {
+    background-color: $color-primary;
+    pointer-events: none;
+    }
+}
