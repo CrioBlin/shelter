@@ -20,10 +20,10 @@
 }
 
 .footer-contacts {
-  margin-top: 16px;
   display: flex;
   flex-direction: column;
-  row-gap: 40px;
+  row-gap: 39px;
+  margin-top: 18px;
 }
 
 .footer-contacts__title {
@@ -46,9 +46,9 @@
 .footer-location {
   display: flex;
   flex-direction: column;
+  row-gap: 32px;
+  margin-top: 18px;
   padding-right: 7px;
-  margin-top: 16px;
-  row-gap: 40px;
 }
 
 .footer-location__title {
