@@ -1,3 +1,10 @@
+.not-only {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 90px;
+}
+
 .not-only-content {
   display: flex;
   flex-direction: column;
@@ -14,4 +21,15 @@
 .not-only-content__text {
   @include basic-text;
   color: $color-dark-s;
+}
+
+.not-only-content__btn {
+  width: 207px;
+  height: 52px;
+  background-color: $color-primary;
+}
+
+.not-only__img {
+  max-width: 698px;
+  max-height: 728px;;
 }
