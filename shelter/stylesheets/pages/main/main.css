@@ -460,6 +460,7 @@ time, mark, audio, video {
 
 .arrow-btn:hover {
   cursor: pointer;
+  border-color: #fddcc4;
   background-color: #fddcc4;
   -webkit-transition: 0.3s;
   transition: 0.3s;
