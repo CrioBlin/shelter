@@ -592,6 +592,107 @@ body {
   border-bottom: 3px solid #f1cdb3;
 }
 
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  font-family: 'Georgia';
+  letter-spacing: 0.06em;
+  color: #f1cdb3;
+}
+
+.footer-text:hover {
+  color: #fddcc4;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.footer-contacts {
+  margin-top: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 40px;
+}
+
+.footer-contacts__title {
+  color: #ffffff;
+}
+
+.footer-contacts__email {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+}
+
+.footer-contacts__phone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+}
+
+.footer-location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-right: 7px;
+  margin-top: 16px;
+  row-gap: 40px;
+}
+
+.footer-location__title {
+  color: #ffffff;
+}
+
+.footer-location__map {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+}
+
+.footer-icon:hover svg path {
+  fill: #fddcc4;
+}
+
 .section-light {
   display: -webkit-box;
   display: -ms-flexbox;

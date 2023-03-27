@@ -1,0 +1,70 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 0;
+  a {
+    text-decoration: none;
+  }
+}
+
+.footer-text {
+  @include font(20px, 115%, 400, normal);
+  font-family: 'Georgia';
+  letter-spacing: 0.06em;
+  color: $color-primary;
+  &:hover {
+    color: $color-primary-light;
+    transition: 0.4s;
+  }
+}
+
+.footer-contacts {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.footer-contacts__title {
+  color: $color-light-xl;
+}
+
+.footer-contacts__email {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.footer-contacts__phone {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+
+.footer-location {
+  display: flex;
+  flex-direction: column;
+  padding-right: 7px;
+  margin-top: 16px;
+  row-gap: 40px;
+}
+
+.footer-location__title {
+  color: $color-light-xl;
+}
+
+.footer-location__map {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.footer-icon {
+  &:hover {
+    svg path {
+      fill: $color-primary-light;
+    }
+  }
+}
