@@ -3,26 +3,23 @@
 }
 
 .h1-title {
+  @include font(3.2rem, 110%, 400, normal);
   font-family: 'Georgia';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 3.2rem;
-  line-height: 110%;
   letter-spacing: 0.06em;
   color: $color-primary;
 }
 
 .h2-title {
+  @include font(4.4rem, 130%, 400, normal);
   font-family: 'Georgia';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 44px;
-  line-height: 130%;
   color: $color-light-xl;
 }
 
 .h3-title {
-
+  @include font(3.5rem, 130%, 400, normal);
+  font-family: 'Georgia';
+  letter-spacing: 0.06em;
+  color: $color-dark-l;
 }
 
 .h4-title {
