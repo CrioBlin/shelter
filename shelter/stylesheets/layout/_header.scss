@@ -42,8 +42,13 @@
   box-sizing: border-box;
   transition: 0.1s;
   &:hover {
-    border-bottom: 3px solid $color-primary;
     transition: 0.1s;
+    .nav__link {
+      color: $color-light-s;
+    }
+  }
+  &:active {
+    border-bottom: 3px solid $color-primary; 
     .nav__link {
       color: $color-light-s;
     }

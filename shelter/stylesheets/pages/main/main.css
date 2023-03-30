@@ -617,12 +617,19 @@ body {
 }
 
 .nav__item:hover {
-  border-bottom: 3px solid #f1cdb3;
   -webkit-transition: 0.1s;
   transition: 0.1s;
 }
 
 .nav__item:hover .nav__link {
+  color: #fafafa;
+}
+
+.nav__item:active {
+  border-bottom: 3px solid #f1cdb3;
+}
+
+.nav__item:active .nav__link {
   color: #fafafa;
 }
 
