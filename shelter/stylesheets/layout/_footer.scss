@@ -6,9 +6,20 @@
   a {
     text-decoration: none;
   }
+  @include media-tablet() {
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 60px;
+    row-gap: 65px;
+    margin-top: 30px;
+  }
 }
 
-.footer-text {
+.footer__title{
+  color: $color-light-xl;
+}
+
+.footer__text {
   @include font(20px, 115%, 400, normal);
   font-family: 'Georgia';
   letter-spacing: 0.06em;
@@ -22,12 +33,14 @@
 .footer-contacts {
   display: flex;
   flex-direction: column;
-  row-gap: 39px;
+  justify-content: space-between;
+  // row-gap: 39px;
   margin-top: 16px;
-}
-
-.footer-contacts__title {
-  color: $color-light-xl;
+  max-width: 279px;
+  height: 234px;
+  @include media-tablet() {
+    margin-top: 0;
+  }
 }
 
 .footer-contacts__email {
@@ -46,14 +59,17 @@
 .footer-location {
   display: flex;
   flex-direction: column;
-  row-gap: 32px;
+  justify-content: space-between;
+  // row-gap: 32px;
   margin-top: 17px;
   padding-right: 7px;
+  max-width: 302px;
+  height: 234px;
+  @include media-tablet() {
+    margin-top: 0;
+  }
 }
 
-.footer-location__title {
-  color: $color-light-xl;
-}
 
 .footer-location__map {
   display: flex;
@@ -67,4 +83,14 @@
       fill: $color-primary-light;
     }
   }
+}
+
+.footer-dog {
+  max-width: 300px;
+  max-height: 310px;
+}
+
+.footer-dog__img {
+  width: 100%;
+  height: 100%;
 }

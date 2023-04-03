@@ -3,6 +3,11 @@
   justify-content: space-between;
   margin-top: 90px;
   margin-bottom: 0;
+  @include media-tablet() {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+  }
 }
 
 .not-only__content {
@@ -12,6 +17,9 @@
   margin-top: 163px;
   width: 460px;
   height: 322px;
+  @include media-tablet() {
+    margin-top: 0;
+  }
 }
 
 .not-only__title {
@@ -27,9 +35,23 @@
   width: 207px;
   height: 52px;
   background-color: $color-primary;
+  @include media-tablet() {
+    align-self: center; 
+  }
 }
 
 .not-only__img {
   max-width: 698px;
-  max-height: 728px;;
+  max-height: 728px;
+  @include media-tablet() {
+    align-self: flex-end;
+    margin-top: 100px; 
+    max-width: 569px;
+    max-height: 593px;
+  }
+}
+
+.not-only__dog-img {
+  width: 100%;
+  height: 100%;
 }

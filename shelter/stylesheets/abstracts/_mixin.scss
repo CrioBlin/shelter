@@ -24,3 +24,15 @@
   color: $color-dark-3xl;
   text-decoration: none;
 }
+
+// Media queries
+@mixin media-desktop {
+  @media (max-width: $desktop-width) and (min-width: $tablet-width) { @content; }
+}
+
+@mixin media-tablet {
+  @media (max-width: $tablet-width) { @content; }
+}
+
+
+

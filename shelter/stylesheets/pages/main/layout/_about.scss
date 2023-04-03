@@ -3,11 +3,22 @@
   align-items: center;
   justify-content: center;
   column-gap: 120px;
+  @include media-tablet() {
+    flex-direction: column-reverse;
+    row-gap: 80px;
+    // margin-left: 165px;
+    // margin-right: 165px;
+  }
 }
 
 .about__img {
   max-width: 300px;
   max-height: 408px;
+}
+
+.about__img-pets {
+  width: 100%;
+  height: 100%;
 }
 
 .about__content {
