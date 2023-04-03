@@ -975,6 +975,10 @@ body {
   background-color: #f6f6f6;
 }
 
+.burger__line {
+  border-color: #000000;
+}
+
 .header {
   margin: 0;
   background-color: #ffffff;
@@ -1032,6 +1036,12 @@ body {
   margin-bottom: 100px;
 }
 
+@media (max-width: 768px) {
+  .friends__container {
+    margin-bottom: 76px;
+  }
+}
+
 .friends__title {
   text-align: center;
 }
@@ -1047,6 +1057,15 @@ body {
       flex-wrap: wrap;
   gap: 30px 40px;
   margin: 59px 0;
+}
+
+@media (max-width: 768px) {
+  .friends__pets {
+    margin: 27px 0 40px 0;
+  }
+  .friends__pets .pet-card:nth-child(n+7) {
+    display: none;
+  }
 }
 
 .pagination {

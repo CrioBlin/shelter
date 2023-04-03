@@ -4,6 +4,9 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 100px;
+  @include media-tablet() {
+    margin-bottom: 76px;
+  }
 }
 
 .friends__title {
@@ -16,6 +19,12 @@
   flex-wrap: wrap;
   gap: 30px 40px;
   margin: 59px 0;
+  @include media-tablet() {
+    margin: 27px 0 40px 0;
+    .pet-card:nth-child(n+7) {
+      display: none;
+    }
+  }
 }
 
 .pagination {
