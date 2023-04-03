@@ -13,6 +13,13 @@
   @include font(4.4rem, 130%, 400, normal);
   font-family: 'Georgia';
   color: $color-light-xl;
+  @include media-tablet-to-mobile() {
+    font-size: 3.5rem;
+  }
+  @include media-mobile() {
+    font-size: 2.5rem;
+    letter-spacing: 0.06em;
+  }
 }
 
 .h3-title {
@@ -20,6 +27,15 @@
   font-family: 'Georgia';
   letter-spacing: 0.06em;
   color: $color-dark-l;
+  @include media-tablet() {
+    line-height: 132%;
+  }
+  @include media-425-to-mobile() {
+    font-size: 3rem;
+  }
+  @include media-mobile() {
+    font-size: 2.5rem;
+  }
 }
 
 .h4-title {
@@ -27,6 +43,12 @@
   font-family: 'Georgia';
   letter-spacing: 0.06em;
   color: $color-dark-l;
+  @include media-tablet() {
+    line-height: 80%;
+  }
+  @include media-mobile() {
+    font-size: 1.5rem;
+  }
 }
 
 .h5-title {
@@ -34,4 +56,8 @@
   font-family: 'Georgia';
   letter-spacing: 0.06em;
   color: $color-dark-l;
+  @include media-mobile() {
+    line-height: 160%;
+    letter-spacing: normal;
+  }
 }

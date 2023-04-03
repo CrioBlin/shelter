@@ -24,3 +24,40 @@
   color: $color-dark-3xl;
   text-decoration: none;
 }
+
+// Media queries
+@mixin media-desktop {
+  @media (max-width: $desktop-width) and (min-width: $tablet-width){ @content; }
+}
+
+@mixin media-desktop-to-tablet {
+  @media (max-width: 1279px) { @content; }
+}
+
+@mixin media-1000-to-tablet {
+  @media (max-width: 1000px) { @content; }
+}
+
+@mixin media-920-to-tablet {
+  @media (max-width: 920px) { @content; }
+}
+
+@mixin media-tablet {
+  @media (max-width: $tablet-width) and (min-width: $mobile-width){ @content; }
+}
+
+@mixin media-tablet-to-mobile {
+  @media (max-width: 767px) { @content; }
+}
+
+@mixin media-425-to-mobile {
+  @media (max-width: 425px) { @content; }
+}
+
+@mixin media-mobile {
+  @media (max-width: $mobile-width) { @content; }
+}
+
+@mixin media-mobile-to-min {
+  @media (max-width: $mobile-content-width) { @content; }
+}

@@ -9,5 +9,24 @@ body {
 
 .container {
   margin: 80px auto 98px;
-  width: 1200px;
+  max-width: $desktop-content-width;
+  width: 100%;
+  @include media-desktop() {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  @include media-desktop-to-tablet() {
+    margin-left: 30px;
+    margin-right: 30px;
+    max-width: calc(100% - 5%);
+  }
+  @include media-tablet() {
+    max-width: $tablet-content-width;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  @include media-mobile() {
+    max-width: $mobile-content-width;
+    margin: 42px 10px;
+  }
 }
