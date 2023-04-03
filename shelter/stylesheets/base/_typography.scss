@@ -13,6 +13,9 @@
   @include font(4.4rem, 130%, 400, normal);
   font-family: 'Georgia';
   color: $color-light-xl;
+  @include media-tablet-to-mobile() {
+    font-size: 3.5rem;
+  }
   @include media-mobile() {
     font-size: 2.5rem;
     letter-spacing: 0.06em;

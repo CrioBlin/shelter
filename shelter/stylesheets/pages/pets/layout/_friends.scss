@@ -29,6 +29,7 @@
     }
   }
   @include media-mobile() {
+    margin: 40px 0;
     .pet-card:nth-child(n+4) {
       display: none;
     }

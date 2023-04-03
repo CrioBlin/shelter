@@ -32,6 +32,10 @@
   align-items: flex-start;
   max-width: 380px;
   row-gap: 20px;
+  @include media-425-to-mobile {
+    align-items: center;
+    max-width: $mobile-width;
+  }
   @include media-mobile() {
     align-items: center;
     max-width: $mobile-content-width;
@@ -39,6 +43,9 @@
 }
 
 .donation-info__title {
+  @include media-425-to-mobile {
+    text-align: center;
+  }
   @include media-mobile() {
     text-align: center;
     line-height: 121%;
@@ -60,6 +67,9 @@
     background-color: $color-primary-light;
     transition: 0.2s;
   }
+  @include media-425-to-mobile {
+    max-width: 280px;
+  }
   @include media-mobile() {
     max-width: 251px;
   }
@@ -71,6 +81,9 @@
   letter-spacing: 0.06em;
   color: $color-dark-l;
   align-items: center;
+  @include media-425-to-mobile {
+    @include font(1.7rem, 112%, 400, normal);
+  }
   @include media-mobile() {
     @include font(1.5rem, 110%, 400, normal);
   }

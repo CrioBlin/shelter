@@ -27,11 +27,15 @@
 
 // Media queries
 @mixin media-desktop {
-  @media (max-width: $desktop-width) { @content; }
+  @media (max-width: $desktop-width) and (min-width: $tablet-width){ @content; }
 }
 
 @mixin media-desktop-to-tablet {
   @media (max-width: 1279px) { @content; }
+}
+
+@mixin media-1000-to-tablet {
+  @media (max-width: 1000px) { @content; }
 }
 
 @mixin media-920-to-tablet {
@@ -39,7 +43,7 @@
 }
 
 @mixin media-tablet {
-  @media (max-width: $tablet-width) { @content; }
+  @media (max-width: $tablet-width) and (min-width: $mobile-width){ @content; }
 }
 
 @mixin media-tablet-to-mobile {

@@ -16,6 +16,8 @@ body {
     margin-right: 40px;
   }
   @include media-desktop-to-tablet() {
+    margin-left: 30px;
+    margin-right: 30px;
     max-width: calc(100% - 5%);
   }
   @include media-tablet() {
