@@ -9,11 +9,18 @@
     // margin-left: 165px;
     // margin-right: 165px;
   }
+  @include media-mobile() {
+    row-gap: 42px;
+  }
 }
 
 .about__img {
   max-width: 300px;
   max-height: 408px;
+  @include media-mobile() {
+    max-width: 260px;
+    max-height: 353px;
+  }
 }
 
 .about__img-pets {
@@ -27,13 +34,26 @@
   justify-content: space-between;
   width: 430px;
   height: 380px;
+  @include media-mobile() {
+    align-items: center;
+    max-width: $mobile-content-width;
+    height: 494px;
+  }
 }
 
 .about__title {
   width: 370px;
+  @include media-mobile() {
+    width: 280px;
+    text-align: center
+  }
 }
 
 .about__text {
   @include basic-text;
   color: $color-dark-xl;
+  @include media-mobile() {
+    margin: 0 15px;
+    text-align: justify;
+  }
 }

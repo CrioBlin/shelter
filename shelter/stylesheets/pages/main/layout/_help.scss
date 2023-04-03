@@ -3,6 +3,14 @@
   flex-direction: column;
   align-items: center;
   row-gap: 60px;
+  @include media-mobile() {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  @include media-mobile() {
+    justify-content: space-between;
+    row-gap: 42px;
+  }
 }
 
 .help__title {
@@ -18,6 +26,11 @@
   @include media-tablet() {
     column-gap: 60px;
   }
+  @include media-mobile() {
+    justify-content: start;
+    gap: 30px;
+    max-width: 290px;
+  }
 }
 
 .help-card {
@@ -29,4 +42,21 @@
     width: 170px;
     height: 113px;
   }
+  @include media-mobile() {
+    row-gap: 20px;
+    width: 130px;
+    height: 87px;
+  }
+}
+
+.help-card__icon {
+  @include media-mobile() {
+    max-width: 50px;
+    max-height: 50px;
+  }
+}
+
+.help-card__icon-img {
+  width: 100%;
+  height: 100%;
 }

@@ -14,12 +14,14 @@ body {
   @include media-desktop() {
     margin-left: 40px;
     margin-right: 40px;
-    // max-width: $desktop-content-width;
-    // min-width: $tablet-content-width;
   }
   @include media-tablet() {
     max-width: $tablet-content-width;
     margin-left: 30px;
     margin-right: 30px;
+  }
+  @include media-mobile() {
+    max-width: $mobile-content-width;
+    margin: 42px 10px;
   }
 }

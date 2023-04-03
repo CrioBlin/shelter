@@ -4,6 +4,9 @@
   justify-content: space-between;
   align-items: center;
   row-gap: 60px;
+  @include media-mobile() {
+    row-gap: 42px;
+  }
 }
 
 .friends__title {
@@ -15,8 +18,10 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  @include media-tablet() {
-
+  @include media-mobile() {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 80px;
   }
 }
 
@@ -28,6 +33,13 @@
   @include media-tablet() {
     max-width: 580px;
     .pet-card:nth-child(3) {
+      display: none;
+    }
+  }
+  @include media-mobile() {
+    order: -1;
+    max-width: 270px;
+    .pet-card:nth-child(2) {
       display: none;
     }
   }
