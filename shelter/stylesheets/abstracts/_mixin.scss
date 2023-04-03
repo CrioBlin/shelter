@@ -34,5 +34,11 @@
   @media (max-width: $tablet-width) { @content; }
 }
 
+@mixin media-tablet-to-mobile {
+  @media (max-width: 767px) { @content; }
+}
 
+@mixin media-mobile {
+  @media (max-width: $mobile-width) { @content; }
+}
 

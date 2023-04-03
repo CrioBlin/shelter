@@ -20,15 +20,27 @@
   @include media-tablet() {
     margin-top: 0;
   }
+  @include media-mobile() {
+    align-items: center;
+    max-width: $mobile-content-width;
+    max-height: 296px;
+  }
 }
 
 .not-only__title {
   width: 310px;
+  @include media-mobile() {
+    max-width: 260px;
+    text-align: center;
+  }
 }
 
 .not-only__text {
   @include basic-text;
   color: $color-dark-s;
+  @include media-mobile() {
+    text-align: center;
+  }
 }
 
 .not-only__btn {
@@ -48,6 +60,11 @@
     margin-top: 100px; 
     max-width: 569px;
     max-height: 593px;
+  }
+  @include media-mobile() {
+    margin-top: 105px;
+    max-width: 260px;
+    max-height: 272px;
   }
 }
 

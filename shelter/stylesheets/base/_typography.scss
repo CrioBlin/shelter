@@ -13,6 +13,10 @@
   @include font(4.4rem, 130%, 400, normal);
   font-family: 'Georgia';
   color: $color-light-xl;
+  @include media-mobile() {
+    font-size: 2.5rem;
+    letter-spacing: 0.06em;
+  }
 }
 
 .h3-title {
@@ -22,6 +26,9 @@
   color: $color-dark-l;
   @include media-tablet() {
     line-height: 132%;
+  }
+  @include media-mobile() {
+    font-size: 2.5rem;
   }
 }
 

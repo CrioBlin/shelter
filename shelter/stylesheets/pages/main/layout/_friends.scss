@@ -15,8 +15,10 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  @include media-tablet() {
-
+  @include media-mobile() {
+    // max-width: 270px;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 }
 
@@ -28,6 +30,12 @@
   @include media-tablet() {
     max-width: 580px;
     .pet-card:nth-child(3) {
+      display: none;
+    }
+  }
+  @include media-mobile() {
+    order: -1;
+    .pet-card:nth-child(2) {
       display: none;
     }
   }
