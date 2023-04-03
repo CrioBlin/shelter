@@ -984,6 +984,12 @@ body {
   background-color: #ffffff;
 }
 
+@media (max-width: 320px) {
+  .header {
+    max-width: 100%;
+  }
+}
+
 .header-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -992,6 +998,15 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 30px auto;
+}
+
+@media (max-width: 767px) {
+  .header-container {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 30px 20px;
+  }
 }
 
 .logo__h1 {
@@ -1042,6 +1057,12 @@ body {
   }
 }
 
+@media (max-width: 320px) {
+  .friends__container {
+    margin-bottom: 44px;
+  }
+}
+
 .friends__title {
   text-align: center;
 }
@@ -1061,9 +1082,15 @@ body {
 
 @media (max-width: 768px) {
   .friends__pets {
-    margin: 27px 0 40px 0;
+    margin: 40px 0;
   }
   .friends__pets .pet-card:nth-child(n+7) {
+    display: none;
+  }
+}
+
+@media (max-width: 320px) {
+  .friends__pets .pet-card:nth-child(n+4) {
     display: none;
   }
 }
@@ -1077,6 +1104,12 @@ body {
           justify-content: space-between;
   width: 340px;
   height: 52px;
+}
+
+@media (max-width: 320px) {
+  .pagination {
+    max-width: 300px;
+  }
 }
 
 .pagination__btn {

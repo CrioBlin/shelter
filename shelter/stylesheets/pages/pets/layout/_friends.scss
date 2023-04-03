@@ -7,6 +7,9 @@
   @include media-tablet() {
     margin-bottom: 76px;
   }
+  @include media-mobile() {
+    margin-bottom: 44px;
+  }
 }
 
 .friends__title {
@@ -20,8 +23,13 @@
   gap: 30px 40px;
   margin: 59px 0;
   @include media-tablet() {
-    margin: 27px 0 40px 0;
+    margin: 40px 0;
     .pet-card:nth-child(n+7) {
+      display: none;
+    }
+  }
+  @include media-mobile() {
+    .pet-card:nth-child(n+4) {
       display: none;
     }
   }
@@ -32,6 +40,9 @@
   justify-content: space-between;
   width: 340px;
   height: 52px;
+  @include media-mobile() {
+    max-width: $mobile-content-width;
+  }
 }
 
 .pagination__btn {
