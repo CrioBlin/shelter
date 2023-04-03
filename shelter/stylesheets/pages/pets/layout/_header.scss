@@ -12,7 +12,11 @@
   margin: 30px auto;
   @include media-tablet-to-mobile() {
     align-items: center;
-    margin: 30px 20px;
+    margin: 30px;
+  }
+  @include media-mobile() {
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 
