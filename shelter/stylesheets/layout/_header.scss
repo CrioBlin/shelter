@@ -38,10 +38,28 @@
 .nav {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 443px;
+  justify-content: center; 
   @include media-tablet-to-mobile() {
     display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 320px;
+    width: 100%;
+    height: 100vh;
+    background-color: $color-dark-3xl;
+    
+    &::before {
+      content: "";
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: $color-dark-3xl;
+      opacity: 0.6;
+      z-index: 0;
+    }
   }
 }
 
@@ -49,11 +67,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  column-gap: 36px;
   list-style: none;
+  @include media-tablet-to-mobile() {
+    flex-direction: column;
+    row-gap: 40px;
+    z-index: 1;
+  }
 }
 
 .nav__item {
-  height: 27px;
   box-sizing: border-box;
   transition: 0.1s;
   &:hover {
@@ -86,4 +109,7 @@
   @include navigation-link;
   text-decoration: none;
   color: $color-dark-s;
+  @include media-tablet-to-mobile() {
+    font-size: 3.2rem;
+  }
 }
