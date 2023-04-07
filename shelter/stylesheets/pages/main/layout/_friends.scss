@@ -18,10 +18,13 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  @include media-tablet-to-mobile(){
+    justify-content: space-evenly;
+  }
   @include media-425-to-mobile() {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px 80px;
+    gap: 20px 105px;
   }
   @include media-mobile() {
     flex-wrap: wrap;
@@ -37,7 +40,6 @@
   width: 100%;
   @include media-desktop-to-tablet() {
     justify-content: space-evenly;
-    max-width: 80vw;
   }
   @include media-1000-to-tablet() {
     justify-content: space-evenly;
@@ -52,7 +54,8 @@
   }
   @include media-tablet-to-mobile(){
     justify-content: space-evenly;
-    max-width: 70vw;
+    max-width: none;
+    width: auto;
     .pet-card:nth-child(n+2) {
       display: none;
     }

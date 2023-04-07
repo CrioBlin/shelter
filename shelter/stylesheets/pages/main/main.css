@@ -1418,6 +1418,14 @@ body {
   width: 100%;
 }
 
+@media (max-width: 767px) {
+  .friends__content {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+}
+
 @media (max-width: 425px) {
   .friends__content {
     -ms-flex-wrap: wrap;
@@ -1425,7 +1433,7 @@ body {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    gap: 20px 80px;
+    gap: 20px 105px;
   }
 }
 
@@ -1456,7 +1464,6 @@ body {
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
-    max-width: 80vw;
   }
 }
 
@@ -1486,7 +1493,8 @@ body {
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
-    max-width: 70vw;
+    max-width: none;
+    width: auto;
   }
   .friends__pets .pet-card:nth-child(n+2) {
     display: none;
