@@ -7,6 +7,21 @@ body {
               radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 }
 
+.body_lock {
+  overflow: hidden;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $color-dark-3xl;
+    opacity: 0.6;
+  }
+}
+
 .container {
   margin: 80px auto 98px;
   max-width: $desktop-content-width;

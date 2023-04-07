@@ -478,27 +478,14 @@ time, mark, audio, video {
           justify-content: space-between;
   width: 30px;
   height: 22px;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   z-index: 1;
 }
 
-.burger::before {
-  content: "";
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: -49px;
-  bottom: 0;
-  right: 0;
-  background-color: #292929;
-  opacity: 0.6;
-  z-index: -1;
-}
-
 .burger_active {
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
@@ -660,6 +647,22 @@ body {
   background: url(../../../assets/images/noise-transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 }
 
+.body_lock {
+  overflow: hidden;
+  position: relative;
+}
+
+.body_lock::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #292929;
+  opacity: 0.6;
+}
+
 .container {
   margin: 80px auto 98px;
   max-width: 1200px;
@@ -703,8 +706,21 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 30px;
+  margin-top: 0;
   margin-bottom: 0;
+  padding-top: 30px;
+}
+
+.header_shadow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #292929;
+  opacity: 0.6;
+  z-index: 1;
 }
 
 @media (max-width: 1000px) {
@@ -775,13 +791,21 @@ body {
     display: none;
     position: absolute;
     top: 0;
-    right: -320px;
+    right: -100%;
     max-width: 320px;
     width: 100%;
     height: 100vh;
     background-color: #292929;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  .nav_active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .nav_active-slide {
+    right: 0;
   }
 }
 

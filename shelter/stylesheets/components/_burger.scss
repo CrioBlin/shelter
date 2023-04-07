@@ -5,23 +5,11 @@
   justify-content: space-between;
   width: 30px;
   height: 22px;
-  transition: 0.2s;
+  transition: 0.5s;
   z-index: 1;
-  &::before {
-    content: "";
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: -49px;
-    bottom: 0;
-    right: 0;
-    background-color: $color-dark-3xl;
-    opacity: 0.6;
-    z-index: -1;
-  }
-
+ 
   &_active {
-    transition: 0.2s;
+    transition: 0.5s;
     transform: rotate(90deg);
   }
   @include media-tablet-to-mobile(){
