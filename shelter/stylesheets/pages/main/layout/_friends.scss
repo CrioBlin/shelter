@@ -38,6 +38,7 @@
   justify-content: space-between;
   max-width: 990px;
   width: 100%;
+  overflow: hidden;
   @include media-desktop-to-tablet() {
     justify-content: space-evenly;
   }

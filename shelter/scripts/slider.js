@@ -3,7 +3,6 @@ import { generateCards } from "./card.js";
 const btnLeft = document.querySelector(".left-arrow__btn");
 const btnRight = document.querySelector(".right-arrow__btn");
 export const container = document.querySelector(".friends__pets");
-
 const arrayOfCards = await generateCards();
 
 class Slider {
@@ -18,6 +17,7 @@ class Slider {
       nextArr: []
   }
 
+  currentSide = null;
   isPrevious = false;
   // Counter for next slide iterations, needed for Next-->Next move
   nextCounter = 0;
@@ -80,32 +80,50 @@ class Slider {
   }
 
   setCards() {
+    const currentCards = document.querySelectorAll('.pet-card');
+    const width = container.offsetWidth;
+    
+    console.log(...this.arrStatus.currentArr);
+
+    currentCards.forEach((item) => {
+      if (this.currentSide == "left") {
+        // item.style.right = `-${width}px`;
+        item.style.right = `-25px`;
+        item.style.left = "0px";
+      } else {
+        item.style.left = `-${width}px`;
+        item.style.right = "0px";
+      }
+    })
     container.replaceChildren(...this.arrStatus.currentArr);
+    // container.insertAdjacentElement(...this.arrStatus.currentArr);
   }
 }
 
 const slider = new Slider(container, arrayOfCards);
-let currentSide = null;
 
 slider.setCurrentArray();
 slider.setCards();
 
 btnRight.addEventListener("click", () => {
-  if (currentSide != "left") {
+  if (slider.currentSide != "left") {
+    slider.currentSide = "right";
     slider.setNextArray();
   }else {
+    slider.currentSide = "right";
     slider.setPreviousArray();
   }
-  currentSide = "right";
 });
 
 btnLeft.addEventListener("click", () => {
-  if (currentSide != "right") {
+  if (slider.currentSide != "right") {
+    slider.currentSide = "left";
     slider.setNextArray();
   }else {
+    slider.currentSide = "left";
     slider.setPreviousArray();
   }
-  currentSide = "left";
 });
 
 // TO DO MAKE SLIDES For SLider
+
