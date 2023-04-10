@@ -1,79 +1,111 @@
 import { generateCards } from "./card.js";
 
 const btnLeft = document.querySelector(".left-arrow__btn");
-const btnRight = document.querySelector(".righth-arrow__btn");
+const btnRight = document.querySelector(".right-arrow__btn");
 export const container = document.querySelector(".friends__pets");
 
 const arrayOfCards = await generateCards();
 
 class Slider {
-  constructor(previousBtn, nextBtn, container, arrayOfCards) {
-    this.previousBtn = previousBtn;
+  constructor(container, arrayOfCards) {
     this.container = container;
-    this.nextBtn = nextBtn;
     this.arrayOfCards = arrayOfCards;
-    this.previousArr = [];
-    this.currentArr = [];
-    this.nextArr = [];
-    this.status = "current"; 
   }
+
+  arrStatus = {
+      previousArr: [],
+      currentArr: [],
+      nextArr: []
+  }
+
+  isPrevious = false;
+  // Counter for next slide iterations, needed for Next-->Next move
+  nextCounter = 0;
 
   createRandomSet() {
     const setLength = this.container.children.length;
-    let newSet = [];
+    const newSet = [];
   
     this.arrayOfCards.sort((a, b) => 0.5 - Math.random());
-  
+    
     for (let i = 0; i < setLength; i++) {
       newSet.push(this.arrayOfCards.shift());
     }
-  
+    
     return newSet;
   }
 
   setCurrentArray() {
-    this.currentArr = this.createRandomSet();
+    this.arrStatus.currentArr = this.createRandomSet();
   }
 
+  // sets new Array of pet cards, and stours previous Array  
   setNextArray() {
-    switch (this.status) {
-      // from current to Next (1 Times Next)
-      case "current":
-        // console.log("Current Pr: ", this.previousArr);
-        // console.log("Current Cur: ", this.currentArr);
-        this.previousArr = [...this.currentArr];
+    switch (this.nextCounter) {
+      case 0: 
+        if (this.isPrevious) {
+          this.arrStatus.previousArr.forEach(item => {
+            this.arrayOfCards.push(item);
+          });
+          this.isPrevious = false;
+        }
+
+        this.arrStatus.previousArr = [...this.arrStatus.currentArr]; 
+
         this.setCurrentArray();
-        this.status = "next";
+        this.setCards();
+        this.nextCounter = 1;
         break;
-      case "next":
-        // from next to next (2 Times Next)
-        this.previousArr.forEach(item => {
+      case 1:
+        this.arrStatus.previousArr.forEach(item => {
           this.arrayOfCards.push(item);
         });
-        // console.log("Current Pr: ", this.previousArr);
-        // console.log("Current Cur: ", this.currentArr[0]);  
-        this.previousArr = [...this.currentArr];
+
+        this.arrStatus.previousArr = [...this.arrStatus.currentArr];
         this.setCurrentArray();
-        this.status = "current";
-        // console.log("Next Pr: ", this.previousArr[0]);
-        // console.log("Next Cur: ", this.currentArr[0]);
+        this.setCards();
         break;
-      case "previous":
-        // from Next to previous (1 Time Previous)
-        this.currentArr = [...this.previousArr]
-        this.status = "current";
-        // console.log("Next Pr: ", this.previousArr[0]);
-        // console.log("Next Cur: ", this.currentArr[0]);
-        break;
-    }
+      }
+  }
+
+  setPreviousArray() {
+    let tempArr = [...this.arrStatus.currentArr]; 
+
+    this.arrStatus.currentArr = [...this.arrStatus.previousArr]; 
+    this.arrStatus.previousArr = [...tempArr];
+    this.setCards();
+
+    this.isPrevious = true;
+    this.nextCounter = 0;
+  }
+
+  setCards() {
+    container.replaceChildren(...this.arrStatus.currentArr);
   }
 }
 
-const slider = new Slider(btnLeft, btnRight, container, arrayOfCards);
+const slider = new Slider(container, arrayOfCards);
+let currentSide = null;
 
-slider.setCurrentArray()
+slider.setCurrentArray();
+slider.setCards();
 
-// console.log(slider.setCurrentArray());
-slider.status = "next";
-slider.setNextArray()
+btnRight.addEventListener("click", () => {
+  if (currentSide != "left") {
+    slider.setNextArray();
+  }else {
+    slider.setPreviousArray();
+  }
+  currentSide = "right";
+});
 
+btnLeft.addEventListener("click", () => {
+  if (currentSide != "right") {
+    slider.setNextArray();
+  }else {
+    slider.setPreviousArray();
+  }
+  currentSide = "left";
+});
+
+// TO DO MAKE SLIDES For SLider

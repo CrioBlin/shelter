@@ -1,5 +1,6 @@
 async function getPetsInfo() {
-  const requestURL = "http://127.0.0.1:5500/shelter/scripts/json/pets.json"; // NEED TO change befor deploying
+  const requestURL = "https://rolling-scopes-school.github.io/crioblin-JSFE2023Q1/shelter/scripts/json/pets.json"; // NEED TO change befor deploying
+  // "http://127.0.0.1:5500/shelter/scripts/json/pets.json" for localhost
   const request = new Request(requestURL);
 
   const response = await fetch(request);
@@ -29,11 +30,9 @@ async function generateCards() {
 
   pets.forEach(element => {
     cards.push(createCard(element.name, element.img, element.type));
-    // return createCard(element.name, element.img, element.type);
   });
 
   return cards;
 }
-
 
 export {generateCards};
