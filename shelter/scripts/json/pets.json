@@ -34,7 +34,11 @@
   },
   {
     "name": "Scarlett",
+<<<<<<< HEAD
     "img": "../../assets/images/cards/pets-scarlet.png",
+=======
+    "img": "../../assets/images/cards/pets-scarlett.png",
+>>>>>>> e62327401d5356b1708989a61c34db83f2b67fea
     "type": "Dog",
     "breed": "Jack Russell Terrier",
     "description": "Scarlett is a happy, playful girl who will make you laugh and smile. She forms a bond quickly and will make a loyal companion and a wonderful family dog or a good companion for a single individual too since she likes to hang out and be with her human.",
