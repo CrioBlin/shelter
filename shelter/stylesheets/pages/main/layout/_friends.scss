@@ -37,6 +37,7 @@
 // TO DO : Simlify
 
 .slider-container {
+  position: relative;
   display: flex;
   max-width: 1150px;
   width: 100%;
@@ -65,8 +66,8 @@
 
 .friends__pets {
   position: relative;
-  left: 0;
-  right: 0;
+  // left: 0;
+  left: -100%;
   display: flex;
   flex: none;
   justify-content: center;
@@ -104,16 +105,26 @@
   }
 
   &_slide-left {
-    margin-left: -100%;
+    // margin-left: -100%;
+    // left: -100%;
+    left: 0;
     transition: 1s;
   }
   &_slide-right {
-    margin-left: 0;
+    // margin-left: 0;
+    // left: -100%;
+    left: -200%;
     transition: 1s;
   }
-  &_slide-hidden {
-    margin-left: -100%;
-    transition: 1s;
+  &_hidden {
+    display: none;
+  }
+
+  &-left-side {
+    
+  }
+  &-right-side {
+
   }
 }
 

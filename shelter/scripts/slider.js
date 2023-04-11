@@ -22,6 +22,8 @@ class Slider {
   }
 
   tempContainer = null;
+  leftContainer = null;
+  rightContainer = null;
   currentSide = null;
   isPrevious = false;
   // Counter for next slide iterations, needed for Next-->Next move
@@ -88,18 +90,28 @@ class Slider {
     // const width = container.offsetWidth;
     this.fillTempContainer();
     const currentContainer = document.querySelector(".friends__pets");
-    let tempOffet = currentContainer.offsetLeft;
           
     if (this.currentSide == "right") {
-      currentContainer.classList.add("friends__pets_slide-left");
+      // this.tempContainer.classList.add("friends__pets_slide-left")
+      // this.sliderContainer.append(this.tempContainer);
+      // currentContainer.classList.add("friends__pets_slide-left");
+      this.moveSlides();
       currentContainer.addEventListener("transitionend",() => {
-          this.sliderContainer.removeChild(currentContainer);
+        this.updateSideContainers();
+          console.log("2");
       })
       // nextConteiner.classList.toggle("friends__pets_slide-hidden");
       // nextConteiner.style.left = 0;
     } else {
-      this.tempContainer.classList.toggle("friends__pets_slide-hidden");
-      sliderContainer.prepend(this.tempContainer);
+      // this.tempContainer.classList.toggle("friends__pets_slide-hidden");
+      // sliderContainer.prepend(this.tempContainer);
+      this.moveSlides();
+      currentContainer.addEventListener("transitionend",() => {
+        this.updateSideContainers();
+        console.log("1");
+    })
+
+
       // setTimeout(() => {
       //   this.tempContainer.classList.toggle("friends__pets_slide-hidden");
       // },100)
@@ -114,40 +126,90 @@ class Slider {
     // console.log(...this.arrStatus.currentArr);
 
     // this.setLeftSideCards();
-    // currentCards.forEach((item) => {
-    //   if (this.currentSide == "left") {
-    //     // item.style.right = `-${width}px`;
-    //     item.style.right = `-25px`;
-    //     item.style.left = "0px";
-    //   } else {
-    //     item.style.left = `-${width}px`;
-    //     item.style.right = "0px";
-    //   }
     // })
   }
 
-  setLeftSideCards() {
-    this.container
-  }
+  // setLeftSideCards() {
+  //   this.leftContainer = ;
+  //   this.rightContainer = ;
+  // }
 
   createTempContainer() {
-    this.tempContainer = document.createElement("div");
-    this.tempContainer.classList.add("friends__pets");
-    this.tempContainer.append(...this.arrStatus.currentArr);
+    // this.tempContainer = document.createElement("div");
+    // this.tempContainer.classList.add("friends__pets");
+    // this.tempContainer.append(...this.arrStatus.currentArr);
+    const tempContainer = document.createElement("div");
+    tempContainer.classList.add("friends__pets");
+
+    let temp = this.arrStatus.currentArr
+    console.log(temp)
+    tempContainer.append(...temp);
+
+    return tempContainer;
+  }
+
+  setSideContainers() {
+    // console.log(this.createTempContainer())
+    const left = this.createTempContainer(),
+          right = this.createTempContainer();
+
+    left.classList.add("friends__pets-left-side");
+    right.classList.add("friends__pets-right-side");
+    // left.classList.add("friends__pets-left-side", "friends__pets_hidden");
+    // right.classList.add("friends__pets-right-side", "friends__pets_hidden");
+
+    this.sliderContainer.prepend(left);
+    this.sliderContainer.append(right);
+  }
+
+  updateSideContainers() {
+    const left = document.querySelector(".friends__pets-left-side"),
+          active = document.querySelector(".friends__pets_active"),
+          right = document.querySelector(".friends__pets-right-side");
+    
+    left.classList.toggle("friends__pets-left-side");
+    right.classList.toggle("friends__pets-right-side");
+
+    // active.classList.toggle("friends__pets_active");
+
+    if (this.currentSide == "left") {
+      left.classList.toggle("friends__pets_active");
+      // this.sliderContainer.removeChild(right);
+    } else {
+      right.classList.toggle("friends__pets_active");
+      // right.classList.toggle(`friends__pets_slide-${this.currentSide}`);
+      this.sliderContainer.removeChild(left);
+    }
+
+    this.sliderContainer.removeChild(active);
+    // console.log(document.querySelector(".friends__pets_active"))
+    // document.querySelector(".friends__pets_active").classList.toggle(`friends__pets_slide-${this.currentSide}`);
+    this.setSideContainers();
+    // this.sliderContainer.removeChild(active);
+    // this.setSideContainers();
+  }
+
+  moveSlides() {
+    const slides = document.querySelectorAll(".friends__pets");
+    slides.forEach((item) => {
+      item.classList.add(`friends__pets_slide-${this.currentSide}`);
+    })
   }
 
   fillTempContainer() {
-    this.tempContainer.replaceChildren(...this.arrStatus.currentArr); 
+    // this.tempContainer.replaceChildren(...this.arrStatus.currentArr); 
     // console.log(this.tempContainer)
     // if (this.currentSide == "left") {
     //   this.tempContainer.classList.toggle("friends__pets_slide-right");
     // } 
   }
 
+
   sliderInitializtion() {
     this.setCurrentArray();
     // this.setCards();
-    this.createTempContainer();
+    this.setSideContainers();
+    // this.createTempContainer();
   }
 }
 
