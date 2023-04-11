@@ -33,14 +33,49 @@
   }
 }
 
-.friends__pets {
+
+// TO DO : Simlify
+
+.slider-container {
   display: flex;
-  justify-content: space-between;
-  max-width: 990px;
+  max-width: 1150px;
   width: 100%;
   overflow: hidden;
+  @include media-1000-to-tablet() {
+    max-width: 80%;
+    .pet-card:nth-child(3) {
+      display: none;
+    }
+  }
+  @include media-tablet() {
+    max-width: 580px;
+  }
+  @include media-tablet-to-mobile(){
+    max-width: 270px;
+  }
+  @include media-425-to-mobile() {
+    order: -1;
+  }
+  @include media-mobile() {
+    order: -1;
+    max-width: 270px;
+  }
+}
+
+
+.friends__pets {
+  position: relative;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex: none;
+  justify-content: center;
+  column-gap: 9.2%;
+  width: 100%;
+  transition: 1s;
   @include media-desktop-to-tablet() {
     justify-content: space-evenly;
+    column-gap: 0;
   }
   @include media-1000-to-tablet() {
     justify-content: space-evenly;
@@ -61,15 +96,24 @@
       display: none;
     }
   }
-  @include media-425-to-mobile() {
-    order: -1;
-  }
   @include media-mobile() {
-    order: -1;
     max-width: 270px;
     .pet-card:nth-child(n+2) {
       display: none;
     }
+  }
+
+  &_slide-left {
+    margin-left: -100%;
+    transition: 1s;
+  }
+  &_slide-right {
+    margin-left: 0;
+    transition: 1s;
+  }
+  &_slide-hidden {
+    margin-left: -100%;
+    transition: 1s;
   }
 }
 

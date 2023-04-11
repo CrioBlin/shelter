@@ -5,10 +5,14 @@ const btnRight = document.querySelector(".right-arrow__btn");
 export const container = document.querySelector(".friends__pets");
 const arrayOfCards = await generateCards();
 
+const sliderContainer = document.querySelector(".slider-container");
+
 class Slider {
-  constructor(container, arrayOfCards) {
+  constructor(sliderContainer, container, arrayOfCards) {
     this.container = container;
     this.arrayOfCards = arrayOfCards;
+    this.sliderContainer = sliderContainer;
+    this.sliderInitializtion();
   }
 
   arrStatus = {
@@ -17,6 +21,7 @@ class Slider {
       nextArr: []
   }
 
+  tempContainer = null;
   currentSide = null;
   isPrevious = false;
   // Counter for next slide iterations, needed for Next-->Next move
@@ -68,7 +73,7 @@ class Slider {
       }
   }
 
-  setPreviousArray() {
+  getPreviousArray() {
     let tempArr = [...this.arrStatus.currentArr]; 
 
     this.arrStatus.currentArr = [...this.arrStatus.previousArr]; 
@@ -80,30 +85,73 @@ class Slider {
   }
 
   setCards() {
-    const currentCards = document.querySelectorAll('.pet-card');
-    const width = container.offsetWidth;
-    
-    console.log(...this.arrStatus.currentArr);
+    // const width = container.offsetWidth;
+    this.fillTempContainer();
+    const currentContainer = document.querySelector(".friends__pets");
+    let tempOffet = currentContainer.offsetLeft;
+          
+    if (this.currentSide == "right") {
+      currentContainer.classList.add("friends__pets_slide-left");
+      currentContainer.addEventListener("transitionend",() => {
+          this.sliderContainer.removeChild(currentContainer);
+      })
+      // nextConteiner.classList.toggle("friends__pets_slide-hidden");
+      // nextConteiner.style.left = 0;
+    } else {
+      this.tempContainer.classList.toggle("friends__pets_slide-hidden");
+      sliderContainer.prepend(this.tempContainer);
+      // setTimeout(() => {
+      //   this.tempContainer.classList.toggle("friends__pets_slide-hidden");
+      // },100)
+      // currentContainer.addEventListener("transitionend",() => {
+      //     this.sliderContainer.removeChild(currentContainer);
+      // })
+    }
 
-    currentCards.forEach((item) => {
-      if (this.currentSide == "left") {
-        // item.style.right = `-${width}px`;
-        item.style.right = `-25px`;
-        item.style.left = "0px";
-      } else {
-        item.style.left = `-${width}px`;
-        item.style.right = "0px";
-      }
-    })
-    container.replaceChildren(...this.arrStatus.currentArr);
-    // container.insertAdjacentElement(...this.arrStatus.currentArr);
+
+    // container.replaceChildren(...this.arrStatus.currentArr);
+    
+    // console.log(...this.arrStatus.currentArr);
+
+    // this.setLeftSideCards();
+    // currentCards.forEach((item) => {
+    //   if (this.currentSide == "left") {
+    //     // item.style.right = `-${width}px`;
+    //     item.style.right = `-25px`;
+    //     item.style.left = "0px";
+    //   } else {
+    //     item.style.left = `-${width}px`;
+    //     item.style.right = "0px";
+    //   }
+    // })
+  }
+
+  setLeftSideCards() {
+    this.container
+  }
+
+  createTempContainer() {
+    this.tempContainer = document.createElement("div");
+    this.tempContainer.classList.add("friends__pets");
+    this.tempContainer.append(...this.arrStatus.currentArr);
+  }
+
+  fillTempContainer() {
+    this.tempContainer.replaceChildren(...this.arrStatus.currentArr); 
+    // console.log(this.tempContainer)
+    // if (this.currentSide == "left") {
+    //   this.tempContainer.classList.toggle("friends__pets_slide-right");
+    // } 
+  }
+
+  sliderInitializtion() {
+    this.setCurrentArray();
+    // this.setCards();
+    this.createTempContainer();
   }
 }
 
-const slider = new Slider(container, arrayOfCards);
-
-slider.setCurrentArray();
-slider.setCards();
+const slider = new Slider(sliderContainer, container, arrayOfCards);
 
 btnRight.addEventListener("click", () => {
   if (slider.currentSide != "left") {
@@ -111,7 +159,7 @@ btnRight.addEventListener("click", () => {
     slider.setNextArray();
   }else {
     slider.currentSide = "right";
-    slider.setPreviousArray();
+    slider.getPreviousArray();
   }
 });
 
@@ -121,7 +169,7 @@ btnLeft.addEventListener("click", () => {
     slider.setNextArray();
   }else {
     slider.currentSide = "left";
-    slider.setPreviousArray();
+    slider.getPreviousArray();
   }
 });
 
