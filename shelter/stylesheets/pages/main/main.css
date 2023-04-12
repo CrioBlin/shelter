@@ -1462,6 +1462,7 @@ body {
 }
 
 .slider-container {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1510,8 +1511,7 @@ body {
 
 .friends__pets {
   position: relative;
-  left: 0;
-  right: 0;
+  left: -100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1582,21 +1582,19 @@ body {
 }
 
 .friends__pets_slide-left {
-  margin-left: -100%;
+  left: 0;
   -webkit-transition: 1s;
   transition: 1s;
 }
 
 .friends__pets_slide-right {
-  margin-left: 0;
+  left: -200%;
   -webkit-transition: 1s;
   transition: 1s;
 }
 
-.friends__pets_slide-hidden {
-  margin-left: -100%;
-  -webkit-transition: 1s;
-  transition: 1s;
+.friends__pets_hidden {
+  display: none;
 }
 
 .left-arrow__btn {
