@@ -35,4 +35,4 @@ async function generateCards() {
   return cards;
 }
 
-export {generateCards};
+export {generateCards, getPetsInfo};
