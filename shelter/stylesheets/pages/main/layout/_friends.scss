@@ -35,19 +35,36 @@
 
 
 // TO DO : Simlify
+.slider {
+  overflow: hidden;
+  display: flex;
+  max-width: 1050px;
+  width: 100%;
+  @include media-1000-to-tablet() {
+    max-width: 80%;
+  }
+  @include media-tablet() {
+    max-width: 580px;
+  }
+  @include media-tablet-to-mobile(){
+    max-width: 270px;
+  }
+  @include media-425-to-mobile() {
+    order: -1;
+  }
+  @include media-mobile() {
+    order: -1;
+    max-width: 270px;
+  }
+}
 
 .slider-container {
   position: relative;
+  left: -100%;
   display: flex;
-  max-width: 1150px;
+  max-width: 1050px;
   width: 100%;
-  overflow: hidden;
-  @include media-1000-to-tablet() {
-    max-width: 80%;
-    .pet-card:nth-child(3) {
-      display: none;
-    }
-  }
+  transition: 1s;
   @include media-tablet() {
     max-width: 580px;
   }
@@ -65,13 +82,10 @@
 
 
 .friends__pets {
-  position: relative;
-  // left: 0;
-  left: -100%;
   display: flex;
   flex: none;
   justify-content: center;
-  column-gap: 9.2%;
+  column-gap: 8.5%;
   width: 100%;
   transition: 1s;
   @include media-desktop-to-tablet() {
@@ -92,7 +106,6 @@
   @include media-tablet-to-mobile(){
     justify-content: space-evenly;
     max-width: none;
-    width: auto;
     .pet-card:nth-child(n+2) {
       display: none;
     }
@@ -103,30 +116,31 @@
       display: none;
     }
   }
-
-  &_slide-left {
-    // margin-left: -100%;
-    // left: -100%;
-    left: 0;
-    transition: 1s;
-  }
-  &_slide-right {
-    // margin-left: 0;
-    // left: -100%;
-    left: -200%;
-    transition: 1s;
-  }
-  &_hidden {
-    display: none;
-  }
-
-  &-left-side {
-    
-  }
-  &-right-side {
-
-  }
 }
+
+@keyframes move-left {
+  from {left: -100%;}
+  to {left: 0;}
+}
+
+@keyframes move-right {
+  from {left: -100%;}
+  to {left: -200%;}
+}
+
+.move-right {
+  animation-name: move-right;
+  animation-duration: 1s;
+}
+
+
+.move-left {
+  animation-name: move-left;
+  animation-duration: 1s;
+}
+
+
+
 
 .left-arrow__btn {
   transform: rotate(180deg);

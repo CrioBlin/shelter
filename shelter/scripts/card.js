@@ -1,6 +1,6 @@
 async function getPetsInfo() {
-  const requestURL = "https://rolling-scopes-school.github.io/crioblin-JSFE2023Q1/shelter/scripts/json/pets.json"; // NEED TO change befor deploying
-  // "http://127.0.0.1:5500/shelter/scripts/json/pets.json" for localhost
+  // const requestURL = "https://rolling-scopes-school.github.io/crioblin-JSFE2023Q1/shelter/scripts/json/pets.json"; // NEED TO change befor deploying
+  const requestURL = "http://127.0.0.1:5500/shelter/scripts/json/pets.json" // for localhost
   const request = new Request(requestURL);
 
   const response = await fetch(request);

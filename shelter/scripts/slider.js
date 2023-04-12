@@ -2,12 +2,11 @@ import { generateCards } from "./card.js";
 
 const btnLeft = document.querySelector(".left-arrow__btn");
 const btnRight = document.querySelector(".right-arrow__btn");
-export const container = document.querySelector(".friends__pets");
+const container = document.querySelector(".friends__pets");
 const arrayOfCards = await generateCards();
-
 const sliderContainer = document.querySelector(".slider-container");
 
-class Slider {
+export class Slider {
   constructor(sliderContainer, container, arrayOfCards) {
     this.container = container;
     this.arrayOfCards = arrayOfCards;
@@ -26,9 +25,10 @@ class Slider {
   rightContainer = null;
   currentSide = null;
   isPrevious = false;
+
   // Counter for next slide iterations, needed for Next-->Next move
   nextCounter = 0;
-
+  ///////////////////////////////////////////////////////////////////
   createRandomSet() {
     const setLength = this.container.children.length;
     const newSet = [];
@@ -60,7 +60,7 @@ class Slider {
         this.arrStatus.previousArr = [...this.arrStatus.currentArr]; 
 
         this.setCurrentArray();
-        this.setCards();
+        this.moveSlide();
         this.nextCounter = 1;
         break;
       case 1:
@@ -70,7 +70,7 @@ class Slider {
 
         this.arrStatus.previousArr = [...this.arrStatus.currentArr];
         this.setCurrentArray();
-        this.setCards();
+        this.moveSlide();
         break;
       }
   }
@@ -80,142 +80,78 @@ class Slider {
 
     this.arrStatus.currentArr = [...this.arrStatus.previousArr]; 
     this.arrStatus.previousArr = [...tempArr];
-    this.setCards();
+    this.moveSlide();
 
     this.isPrevious = true;
     this.nextCounter = 0;
   }
+  ////////////////////////////////////////////////////////////////
 
-  setCards() {
-    // const width = container.offsetWidth;
-    this.fillTempContainer();
-    const currentContainer = document.querySelector(".friends__pets");
-          
+  moveSlide() {
+    const currentContainer = document.querySelector(".friends__pets_active");
+    this.clearSideContainers();
+
     if (this.currentSide == "right") {
-      // this.tempContainer.classList.add("friends__pets_slide-left")
-      // this.sliderContainer.append(this.tempContainer);
-      // currentContainer.classList.add("friends__pets_slide-left");
-      this.moveSlides();
-      currentContainer.addEventListener("transitionend",() => {
-        this.updateSideContainers();
-          console.log("2");
+      this.rightContainer.append(...this.arrStatus.currentArr);
+      this.sliderContainer.classList.add("move-right");
+
+      this.sliderContainer.addEventListener("animationend", () => {
+        this.sliderContainer.classList.remove("move-right");
+        currentContainer.replaceChildren(...this.arrStatus.currentArr);
+        btnRight.addEventListener("click", moveRight);
       })
-      // nextConteiner.classList.toggle("friends__pets_slide-hidden");
-      // nextConteiner.style.left = 0;
     } else {
-      // this.tempContainer.classList.toggle("friends__pets_slide-hidden");
-      // sliderContainer.prepend(this.tempContainer);
-      this.moveSlides();
-      currentContainer.addEventListener("transitionend",() => {
-        this.updateSideContainers();
-        console.log("1");
-    })
+      this.leftContainer.append(...this.arrStatus.currentArr);
+      this.sliderContainer.classList.add("move-left");
 
-
-      // setTimeout(() => {
-      //   this.tempContainer.classList.toggle("friends__pets_slide-hidden");
-      // },100)
-      // currentContainer.addEventListener("transitionend",() => {
-      //     this.sliderContainer.removeChild(currentContainer);
-      // })
+      this.sliderContainer.addEventListener("animationend", () => {
+        this.sliderContainer.classList.remove("move-left");
+        currentContainer.replaceChildren(...this.arrStatus.currentArr);
+        btnLeft.addEventListener("click", moveLeft);
+      })
     }
-
-
-    // container.replaceChildren(...this.arrStatus.currentArr);
-    
-    // console.log(...this.arrStatus.currentArr);
-
-    // this.setLeftSideCards();
-    // })
   }
 
-  // setLeftSideCards() {
-  //   this.leftContainer = ;
-  //   this.rightContainer = ;
-  // }
-
   createTempContainer() {
-    // this.tempContainer = document.createElement("div");
-    // this.tempContainer.classList.add("friends__pets");
-    // this.tempContainer.append(...this.arrStatus.currentArr);
     const tempContainer = document.createElement("div");
+
     tempContainer.classList.add("friends__pets");
-
-    let temp = this.arrStatus.currentArr
-    console.log(temp)
-    tempContainer.append(...temp);
-
     return tempContainer;
   }
 
   setSideContainers() {
-    // console.log(this.createTempContainer())
     const left = this.createTempContainer(),
           right = this.createTempContainer();
 
     left.classList.add("friends__pets-left-side");
     right.classList.add("friends__pets-right-side");
-    // left.classList.add("friends__pets-left-side", "friends__pets_hidden");
-    // right.classList.add("friends__pets-right-side", "friends__pets_hidden");
 
+    this.leftContainer = left;
+    this.rightContainer = right;
     this.sliderContainer.prepend(left);
     this.sliderContainer.append(right);
   }
 
-  updateSideContainers() {
-    const left = document.querySelector(".friends__pets-left-side"),
-          active = document.querySelector(".friends__pets_active"),
-          right = document.querySelector(".friends__pets-right-side");
-    
-    left.classList.toggle("friends__pets-left-side");
-    right.classList.toggle("friends__pets-right-side");
-
-    // active.classList.toggle("friends__pets_active");
-
-    if (this.currentSide == "left") {
-      left.classList.toggle("friends__pets_active");
-      // this.sliderContainer.removeChild(right);
-    } else {
-      right.classList.toggle("friends__pets_active");
-      // right.classList.toggle(`friends__pets_slide-${this.currentSide}`);
-      this.sliderContainer.removeChild(left);
-    }
-
-    this.sliderContainer.removeChild(active);
-    // console.log(document.querySelector(".friends__pets_active"))
-    // document.querySelector(".friends__pets_active").classList.toggle(`friends__pets_slide-${this.currentSide}`);
-    this.setSideContainers();
-    // this.sliderContainer.removeChild(active);
-    // this.setSideContainers();
+  clearSideContainers() {
+    this.rightContainer.innerHTML = "";
+    this.leftContainer.innerHTML = "";
   }
 
-  moveSlides() {
-    const slides = document.querySelectorAll(".friends__pets");
-    slides.forEach((item) => {
-      item.classList.add(`friends__pets_slide-${this.currentSide}`);
-    })
+  activateBtn() {
+    btnRight.addEventListener("click", moveRight);
+    btnLeft.addEventListener("click", moveLeft);
   }
-
-  fillTempContainer() {
-    // this.tempContainer.replaceChildren(...this.arrStatus.currentArr); 
-    // console.log(this.tempContainer)
-    // if (this.currentSide == "left") {
-    //   this.tempContainer.classList.toggle("friends__pets_slide-right");
-    // } 
-  }
-
 
   sliderInitializtion() {
-    this.setCurrentArray();
-    // this.setCards();
     this.setSideContainers();
-    // this.createTempContainer();
+    this.setCurrentArray();
+    this.container.replaceChildren(...this.arrStatus.currentArr)
   }
 }
 
-const slider = new Slider(sliderContainer, container, arrayOfCards);
+const slider = new Slider(sliderContainer, container, arrayOfCards, btnLeft, btnRight);
 
-btnRight.addEventListener("click", () => {
+const moveRight = () => {
   if (slider.currentSide != "left") {
     slider.currentSide = "right";
     slider.setNextArray();
@@ -223,9 +159,10 @@ btnRight.addEventListener("click", () => {
     slider.currentSide = "right";
     slider.getPreviousArray();
   }
-});
+  btnRight.removeEventListener("click", moveRight)
+}
 
-btnLeft.addEventListener("click", () => {
+const moveLeft = () => {
   if (slider.currentSide != "right") {
     slider.currentSide = "left";
     slider.setNextArray();
@@ -233,7 +170,11 @@ btnLeft.addEventListener("click", () => {
     slider.currentSide = "left";
     slider.getPreviousArray();
   }
-});
+  btnLeft.removeEventListener("click", moveLeft)
+}
 
-// TO DO MAKE SLIDES For SLider
+btnRight.addEventListener("click", moveRight);
+
+btnLeft.addEventListener("click", moveLeft);
+
 
