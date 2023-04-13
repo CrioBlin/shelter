@@ -567,6 +567,35 @@ time, mark, audio, video {
   transition: 0.3s;
 }
 
+.circle-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  background: inherit;
+  border: 2px solid #f1cdb3;
+  border-radius: 100px;
+  outline: none;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.circle-btn:hover {
+  border-color: #fddcc4;
+  background-color: #fddcc4;
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
 .pet-card {
   position: relative;
   display: -webkit-box;
@@ -650,6 +679,120 @@ time, mark, audio, video {
 .pet-card__btn:hover {
   border-color: #fddcc4;
   background-color: #fddcc4;
+}
+
+.popup-wrapper {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(41, 41, 41, 0.6);
+}
+
+.popup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 952px;
+}
+
+.popup__exit-btn {
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+  margin-right: 10px;
+  width: 52px;
+  height: 52px;
+}
+
+.popup__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 900px;
+  background-color: #fafafa;
+  border-radius: 9px;
+}
+
+.popup__img {
+  width: 500px;
+  height: 500px;
+}
+
+.popup__animal-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 9px 0px 0px 9px;
+}
+
+.popup__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 50px 20px 0px 29px;
+  width: 351px;
+}
+
+.popup__animal-name {
+  color: #000000;
+}
+
+.popup__animal-type {
+  margin-top: 10px;
+  color: #000000;
+}
+
+.popup__animal-text {
+  margin: 43px 0;
+  color: #000000;
+}
+
+.popup__animal-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 10px;
+}
+
+.popup__animal-item {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 110%;
+  letter-spacing: 0.06em;
+  list-style: none;
+}
+
+.popup__animal-item::before {
+  content: "\2022";
+  display: inline-block;
+  width: 10px;
+  color: #f1cdb3;
+}
+
+.popup__animal-item_bold {
+  font-weight: 700;
 }
 
 html {
